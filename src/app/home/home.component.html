@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand text-black" href="#">TheCocktailDB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <input id="ricerca" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" maxlength="1">
+                </li>
+                <li class="nav-item">
+                    <button (click)=ricercaPerLettera() class="btn btn-success ms-2" type="button">Search</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1 class="text-center mt-4 mb-4">Drinks:</h1>
+<div class="row">
+    <div class="col-md-3" *ngFor="let drink of drinks">
+        <div class="card mb-4">
+            <img class="card-img-top" [src]="drink.strDrinkThumb" alt="{{ drink.strDrink }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ drink.strDrink }}</h5>
+                <p class="card-text">ID: {{ drink.idDrink }}</p>
+                <a [routerLink]="['detail', drink.idDrink]" class="btn btn-success">Detail</a>
+            </div>
+        </div>
+    </div>
+</div>

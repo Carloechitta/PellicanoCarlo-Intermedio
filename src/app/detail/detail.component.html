@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand text-black" href="#">TheCocktailDB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<h1 class="text-center mt-4 mb-4">Drink details:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>{{ drink.strDrink }}</h2>
+            <img [src]="drink.strDrinkThumb" class="img-fluid" alt="{{ drink.strDrink }}" width="400" height="400">
+        </div>
+        <div class="col-md-6">
+            <h2>
+                Ingredients:
+            </h2>
+            <div class="row">
+                <div class="col-md-12" *ngFor="let ingredient of ingredients">
+                    <h5>
+                        {{ ingredient.ingredient }}
+                    </h5>
+                    <p>
+                        {{ ingredient.measure }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center mt-5">
+            <h2>
+                Instructions
+            </h2>
+            <div class="d-flex justify-content-center">
+                <a href="#" (click)="changeLanguage($event, 'german')" class="m-2">
+                    <img src="assets/icons/germany.png" style="width: 24px; height: 24px;" alt="Germany">
+                </a>
+                <a href="#" (click)="changeLanguage($event, 'italian')" class="m-2">
+                    <img src="assets/icons/italy.png" style="width: 24px; height: 24px;" alt="Italy">
+                </a>
+                <a href="#" (click)="changeLanguage($event, 'spanish')" class="m-2">
+                    <img src="assets/icons/spain.png" style="width: 24px; height: 24px;" alt="Spain">
+                </a>
+                <a href="#" (click)="changeLanguage($event, 'english')" class="m-2">
+                    <img src="assets/icons/united-kingdom.png" style="width: 24px; height: 24px;" alt="United Kingdom">
+                </a>
+            </div>
+            <p class="mt-4">
+                {{ languageInstructions }}
+            </p>
+        </div>
+        <div class="col-md-12 text-center">
+            <h2>
+                Glass:
+            </h2>
+            <p>
+                Serve: {{ drink.strGlass }}
+            </p>
+        </div>
+    </div>
+</div>
